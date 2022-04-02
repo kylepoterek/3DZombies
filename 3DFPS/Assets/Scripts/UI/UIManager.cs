@@ -76,6 +76,7 @@ public class UIManager : MonoBehaviour
     {
         if (clickEffect)
         {
+            Debug.Log("hi");
             Instantiate(clickEffect, transform.position, Quaternion.identity, null);
         }
     }
