@@ -149,12 +149,23 @@ public class GroundEnemy : Enemy
         {
             if ((target.position - transform.position).magnitude > stopDistance)
             {
+                isAttacking = false;
+                isIdle = false;
                 isMoving = true;
                 return true;
             }
             else if (lineOfSightToStop && !HasLineOfSight())
             {
                 isMoving = true;
+                isIdle = false; 
+                isAttacking = false;
+                return true;
+            }
+            else if ((target.position - transform.position).magnitude <= stopDistance)
+            {
+                isAttacking = true;
+                isMoving = false;
+                isIdle = true; 
                 return true;
             }
         }
